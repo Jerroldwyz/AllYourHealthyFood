@@ -1,4 +1,4 @@
-# Git Repository for the COS30045 subject
+# Git Repository for the SWE30003 subject
 1. clone repository
 2. use cmd to navigate into cloned repository
 3. use command **npm i -l** to install node modules
