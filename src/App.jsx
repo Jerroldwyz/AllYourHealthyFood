@@ -5,15 +5,16 @@ import About from "./About";
 import "./styles.css";
 import logoImage from "./assets/logo/blacklogo.png";
 import { FaShoppingCart } from 'react-icons/fa';
+import ProductDetails from './ProductDetails';
 
 function App() {
   return (
     <Router>
       <div>
-        <nav className="nav">
+        <nav className="nav"><Link to="/">
           <div className="logo">
             <img src={logoImage} alt="Logo" />
-          </div>
+          </div></Link>
           <ul className="nav-items">
             <li>
               <Link to="/">Home</Link>
@@ -31,6 +32,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
         </Routes>
       </div>
     </Router>
