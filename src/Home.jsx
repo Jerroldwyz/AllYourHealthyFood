@@ -16,9 +16,9 @@ function Home() {
                 style={{ backgroundImage: `url(${product.image})` }}
               ></div>
               <div className="product-details">
-                <h3 className="product-name">{product.name}</h3>
-                <p className="product-price">Price: ${product.price}</p>
-                <p className="product-rating">Rating: {product.rating}</p>
+                <p className="product-name">{product.name} - </p>
+                <p className="product-price">${product.price}</p>
+                <p className="product-rating">- rating: {product.rating}</p>
               </div>
             </Link>
           </div>

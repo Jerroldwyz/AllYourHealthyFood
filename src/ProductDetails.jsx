@@ -2,19 +2,32 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import products from './productsData';
 import './ProductDetails.css'; // Import the CSS file
+import CartModal from './CartModal';
 
 function ProductDetails() {
   const { id } = useParams();
   const product = products.find((p) => p.id === Number(id));
   const [quantity, setQuantity] = useState(1);
+  const [cartItems, setCartItems] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const handleQuantityChange = (e) => {
     setQuantity(Math.max(Number(e.target.value), 1));
   };
 
   const handleAddToCart = () => {
-    // Implement your add to cart logic here
-    console.log(`Added ${quantity} quantity of product ${product.name} to cart`);
+    const item = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      quantity: quantity,
+    };
+    setCartItems((prevCartItems) => [...prevCartItems, item]);
+    setIsCartOpen(true);
+  };
+
+  const handleCloseCart = () => {
+    setIsCartOpen(false);
   };
 
   if (!product) {
@@ -23,7 +36,7 @@ function ProductDetails() {
 
   return (
     <div className="product-details">
-      <img src={product.image} alt={product.name} className="product-image" />
+      <img src={product.image} alt={product.name} />
       <div className="product-info">
         <h2>{product.name}</h2>
         <p>Price: ${product.price}</p>
@@ -38,6 +51,7 @@ function ProductDetails() {
           <button onClick={handleAddToCart}>Add to Cart</button>
         </div>
       </div>
+      <CartModal isOpen={isCartOpen} onClose={handleCloseCart} cartItems={cartItems} />
     </div>
   );
 }
