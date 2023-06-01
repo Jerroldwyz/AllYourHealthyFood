@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import products from './productsData';
 import './ProductDetails.css'; // Import the CSS file
 import CartModal from './CartModal';
+import userAccount from './backend/UserAccount';
 
 function ProductDetails() {
   const { id } = useParams();
@@ -16,13 +17,7 @@ function ProductDetails() {
   };
 
   const handleAddToCart = () => {
-    const item = {
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      quantity: quantity,
-    };
-    setCartItems((prevCartItems) => [...prevCartItems, item]);
+    userAccount.addItemToCart(product.id, quantity);
     setIsCartOpen(true);
   };
 
@@ -51,7 +46,7 @@ function ProductDetails() {
           <button onClick={handleAddToCart}>Add to Cart</button>
         </div>
       </div>
-      <CartModal isOpen={isCartOpen} onClose={handleCloseCart} cartItems={cartItems} />
+      <CartModal isOpen={isCartOpen} onClose={handleCloseCart}/>
     </div>
   );
 }

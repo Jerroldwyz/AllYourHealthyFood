@@ -2,6 +2,7 @@ import React from 'react';
 import "./styles.css";
 import products from './productsData';
 import { Link } from 'react-router-dom';
+import userAccount from './backend/UserAccount';
 
 function Home() {
   return (

@@ -5,7 +5,7 @@ class ShoppingCart{
 
     #isItemInCart(id) {
         for (var i = 0; i < this.cart.length; i++) {
-            if (this.cart[i].id === id) {
+            if (this.cart[i].item.id == id) {
                 return [
                     true,
                     i
@@ -13,11 +13,12 @@ class ShoppingCart{
             }
         }
 
-        return false;
+        return [false];
     }
 
     addItem(item, quantity) {
         let [existsInCart, index] = this.#isItemInCart(item.id);
+        console.log(existsInCart);
 
         try {
             if (existsInCart) {

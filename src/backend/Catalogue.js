@@ -14,13 +14,16 @@ class Catalogue {
     }
 
     getItem(id) {
+        let item = undefined;
         //linear search
         products.forEach(product => {
             if (product.id === id) {
-                return new Item(product.id, product.name, product.image, product.price, product.rating)
+                item = new Item(product.id, product.name, product.image, product.price, product.rating);
             }
         });
 
+        if (item != undefined) return item;
+        
         return false;
     }
 }

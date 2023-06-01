@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './CheckoutPage.css';
+import userAccount from './backend/UserAccount';
 
 function CheckoutPage() {
   const [fullName, setFullName] = useState('');
@@ -73,8 +74,8 @@ function CheckoutPage() {
               <div className="order-summary">
           <h3>Order Summary</h3>
           <ul>
-            {orderItems.map((item) => (
-              <li key={item.id}>{item.name} - ${item.price}</li>
+            {userAccount.getShoppingCartList().map((item) => (
+              <li key={item.item.id}>{item.item.name} - ${item.item.price} - x{item.quantity}</li>
             ))}
           </ul>
         </div>

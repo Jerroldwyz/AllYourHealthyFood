@@ -10,11 +10,9 @@ import CartModal from './CartModal';
 import LoginPage from './loginPage';
 import RegistrationPage from './registrationPage';
 import CheckoutPage from './CheckoutPage';
-import account from './backend/UserAccount';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
 
   const openModal = () => {
     setIsOpen(true);
@@ -22,10 +20,6 @@ function App() {
 
   const closeModal = () => {
     setIsOpen(false);
-  };
-
-  const addToCart = (item) => {
-    setCartItems((prevCartItems) => [...prevCartItems, item]);
   };
 
   return (
@@ -52,7 +46,7 @@ function App() {
             <Link to="/login" className="profile">Profile</Link>
           </div>
         </nav>
-        <CartModal isOpen={isOpen} onClose={closeModal} cartItems={cartItems} />
+        <CartModal isOpen={isOpen} onClose={closeModal}/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

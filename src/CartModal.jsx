@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import userAccount from './backend/UserAccount';
 
-function CartModal({ isOpen, onClose, cartItems }) {
+function CartModal({ isOpen, onClose}) {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,13 +34,13 @@ function CartModal({ isOpen, onClose, cartItems }) {
     <div className="cart-modal-overlay">
       <div className="cart-modal-content">
         <h2>Cart</h2>
-        {cartItems.length === 0 ? (
+        {userAccount.getShoppingCartList().length === 0 ? (
           <p>Your cart is empty.</p>
         ) : (
           <ul>
-            {cartItems.map((item) => (
-              <li key={item.id}>
-                {item.name} - ${item.price}
+            {userAccount.getShoppingCartList().map((item) => (
+              <li key={item.item.id}>
+                {item.item.name} - ${item.item.price} - x{item.quantity}
               </li>
             ))}
           </ul>

@@ -4,11 +4,13 @@ import ShoppingCart from "./ShoppingCart";
 
 class UserAccount {
     #shoppingCart;
+    #catalogue;
 
     constructor() {
         this.username = undefined;
         this.role = "guest";
         this.#shoppingCart = new ShoppingCart();
+        this.#catalogue = new Catalogue();
     }
 
     login(username, password) {
@@ -32,15 +34,16 @@ class UserAccount {
     }
 
     getCatalogue() {
-        return Catalogue.getCatalogue();
+        return this.#catalogue.getCatalogue();
     }
 
     getItem(id) {
-        return Catalogue.getItem(id);
+        return this.#catalogue.getItem(id);
     }
 
-    addItemToCart(id) {
-        return this.#shoppingCart.addItem(this.getItem(id));
+    addItemToCart(id, quantity) {
+        let item = this.getItem(id);
+        return this.#shoppingCart.addItem(item, quantity);
     }
 
     removeItemFromCart(id) {
