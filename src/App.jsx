@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link, Navigate } from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
@@ -10,6 +10,7 @@ import CartModal from './CartModal';
 import LoginPage from './loginPage';
 import RegistrationPage from './registrationPage';
 import CheckoutPage from './CheckoutPage';
+import SalesInvoicePage from "./SalesInvoicePage";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,6 +55,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/register" element={<RegistrationPage />} />
+          <Route path="/salesinvoice" element={<SalesInvoicePage />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>

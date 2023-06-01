@@ -1,6 +1,7 @@
 import users from "./users.json"
 import Catalogue from "./Catalogue"
 import ShoppingCart from "./ShoppingCart";
+import SalesInvoice from "./SalesInvoice";
 
 class UserAccount {
     #shoppingCart;
@@ -9,6 +10,7 @@ class UserAccount {
     constructor() {
         this.username = undefined;
         this.role = "guest";
+        this.salesInvoice = undefined;
         this.#shoppingCart = new ShoppingCart();
         this.#catalogue = new Catalogue();
     }
@@ -53,8 +55,18 @@ class UserAccount {
     getShoppingCartList() {
         return this.#shoppingCart.cart;
     }
+
+    checkout(fullName, email, address, paymentMethod) {
+        let shoppingCart = this.getShoppingCartList();
+        let totalCost = this.#shoppingCart.totalCost();
+        this.salesInvoice = new SalesInvoice(fullName, email, address, paymentMethod, shoppingCart, totalCost);
+    }
 }
 
-var account = new UserAccount();
+var account = undefined;
+
+if (account == undefined) {
+    account = new UserAccount();
+}
 
 export default account;

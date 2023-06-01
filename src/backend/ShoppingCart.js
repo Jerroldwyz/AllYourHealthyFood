@@ -4,6 +4,7 @@ class ShoppingCart{
     }
 
     #isItemInCart(id) {
+        //linear search
         for (var i = 0; i < this.cart.length; i++) {
             if (this.cart[i].item.id == id) {
                 return [
@@ -18,7 +19,6 @@ class ShoppingCart{
 
     addItem(item, quantity) {
         let [existsInCart, index] = this.#isItemInCart(item.id);
-        console.log(existsInCart);
 
         try {
             if (existsInCart) {
@@ -47,6 +47,16 @@ class ShoppingCart{
         catch(e) {
             return false;
         }
+    }
+
+    totalCost() {
+        let total = 0;
+
+        for (var i = 0; i < this.cart.length; i++) {
+            total += this.cart[i].item.price * this.cart[i].quantity;
+        }
+        console.log(total);
+        return total;
     }
 }
 

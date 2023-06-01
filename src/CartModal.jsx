@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import userAccount from './backend/UserAccount';
 
-function CartModal({ isOpen, onClose}) {
+function CartModal({ isOpen, onClose }) {
   const navigate = useNavigate();
 
   useEffect(() => {

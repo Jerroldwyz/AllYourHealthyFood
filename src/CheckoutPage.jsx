@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import './CheckoutPage.css';
 import userAccount from './backend/UserAccount';
 
@@ -10,7 +11,7 @@ function CheckoutPage() {
   const [cardNumber, setCardNumber] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCVV] = useState('');
-  const [orderItems, setOrderItems] = useState([]);
+  const navigate = useNavigate();
 
   const handleFullNameChange = (e) => {
     setFullName(e.target.value);
@@ -43,25 +44,26 @@ function CheckoutPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Perform checkout logic here
-    console.log('Full Name:', fullName);
-    console.log('Email:', email);
-    console.log('Address:', address);
-    console.log('Payment Method:', paymentMethod);
-    console.log('Card Number:', cardNumber);
-    console.log('Expiry Date:', expiryDate);
-    console.log('CVV:', cvv);
-    console.log('Order Items:', orderItems);
+    userAccount.checkout(fullName, email, address, paymentMethod, userAccount.getShoppingCartList());
+    navigate("/salesinvoice");
+    // // Perform checkout logic here
+    // console.log('Full Name:', fullName);
+    // console.log('Email:', email);
+    // console.log('Address:', address);
+    // console.log('Payment Method:', paymentMethod);
+    // console.log('Card Number:', cardNumber);
+    // console.log('Expiry Date:', expiryDate);
+    // console.log('CVV:', cvv);
+    // console.log('Order Items:', userAccount.getShoppingCartList());
 
-    // Reset the form
-    setFullName('');
-    setEmail('');
-    setAddress('');
-    setPaymentMethod('');
-    setCardNumber('');
-    setExpiryDate('');
-    setCVV('');
-    setOrderItems([]);
+    // // Reset the form
+    // setFullName('');
+    // setEmail('');
+    // setAddress('');
+    // setPaymentMethod('');
+    // setCardNumber('');
+    // setExpiryDate('');
+    // setCVV('');
   };
 
   return (
