@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import './LoginPage.css'; // Import the CSS file
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import userAccount from './backend/UserAccount';
 
 function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -17,13 +19,9 @@ function LoginPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Perform login logic here
-    console.log('Username:', username);
-    console.log('Password:', password);
-
-    // Reset the form
-    setUsername('');
-    setPassword('');
+    if (userAccount.login(username, password)) {
+      navigate("/profile");
+    }
   };
 
   return (

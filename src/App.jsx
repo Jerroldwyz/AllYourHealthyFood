@@ -11,6 +11,7 @@ import LoginPage from './loginPage';
 import RegistrationPage from './registrationPage';
 import CheckoutPage from './CheckoutPage';
 import SalesInvoicePage from "./SalesInvoicePage";
+import ProfilePage from "./ProfilePage";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,7 +45,7 @@ function App() {
             <div className="cart" onClick={openModal}>
               <FaShoppingCart />
             </div>
-            <Link to="/login" className="profile">Profile</Link>
+            <Link to="/profile" className="profile">Profile</Link>
           </div>
         </nav>
         <CartModal isOpen={isOpen} onClose={closeModal}/>
@@ -53,6 +54,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/register" element={<RegistrationPage />} />
           <Route path="/salesinvoice" element={<SalesInvoicePage />} />

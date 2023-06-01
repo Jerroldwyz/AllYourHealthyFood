@@ -44,26 +44,8 @@ function CheckoutPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    userAccount.checkout(fullName, email, address, paymentMethod, userAccount.getShoppingCartList());
+    userAccount.checkout(fullName, email, address, paymentMethod);
     navigate("/salesinvoice");
-    // // Perform checkout logic here
-    // console.log('Full Name:', fullName);
-    // console.log('Email:', email);
-    // console.log('Address:', address);
-    // console.log('Payment Method:', paymentMethod);
-    // console.log('Card Number:', cardNumber);
-    // console.log('Expiry Date:', expiryDate);
-    // console.log('CVV:', cvv);
-    // console.log('Order Items:', userAccount.getShoppingCartList());
-
-    // // Reset the form
-    // setFullName('');
-    // setEmail('');
-    // setAddress('');
-    // setPaymentMethod('');
-    // setCardNumber('');
-    // setExpiryDate('');
-    // setCVV('');
   };
 
   return (
