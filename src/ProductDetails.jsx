@@ -7,7 +7,7 @@ import userAccount from './backend/UserAccount';
 
 function ProductDetails() {
   const { id } = useParams();
-  const product = products.find((p) => p.id === Number(id));
+  const product = userAccount.getItem(Number(id));
   const [quantity, setQuantity] = useState(1);
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);

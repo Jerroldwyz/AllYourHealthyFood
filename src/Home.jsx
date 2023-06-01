@@ -9,7 +9,7 @@ function Home() {
     <div>
       <h1>Product Catalogue</h1>
       <div className="product-list">
-        {products.map((product) => (
+        {userAccount.getCatalogue().map((product) => (
           <div className="product" key={product.id}>
             <Link to={`/products/${product.id}`}>
               <div
