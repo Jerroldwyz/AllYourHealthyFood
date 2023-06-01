@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import products from './productsData';
 import './ProductDetails.css'; // Import the CSS file
 import CartModal from './CartModal';
 import userAccount from './backend/UserAccount';
@@ -9,7 +8,6 @@ function ProductDetails() {
   const { id } = useParams();
   const product = userAccount.getItem(Number(id));
   const [quantity, setQuantity] = useState(1);
-  const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const handleQuantityChange = (e) => {

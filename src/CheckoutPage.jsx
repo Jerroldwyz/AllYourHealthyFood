@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './CheckoutPage.css';
 import userAccount from './backend/UserAccount';
 
@@ -38,10 +38,6 @@ function CheckoutPage() {
 
   const handleCVVChange = (e) => {
     setCVV(e.target.value);
-  };
-
-  const handleAddToOrder = (product) => {
-    setOrderItems((prevOrderItems) => [...prevOrderItems, product]);
   };
 
   const handleSubmit = (e) => {
