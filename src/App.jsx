@@ -10,6 +10,7 @@ import CartModal from './CartModal';
 import LoginPage from './loginPage';
 import RegistrationPage from './registrationPage';
 import CheckoutPage from './CheckoutPage';
+import account from './backend/UserAccount';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
