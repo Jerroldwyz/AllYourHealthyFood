@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function CartModal({ isOpen, onClose, cartItems }) {
+  const navigate = useNavigate();
+
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (event.target.classList.contains('cart-modal-overlay')) {
@@ -21,6 +24,11 @@ function CartModal({ isOpen, onClose, cartItems }) {
 
   if (!isOpen) return null;
 
+  const handleCheckout = () => {
+    onClose();
+    navigate('/checkout');
+  };
+
   return (
     <div className="cart-modal-overlay">
       <div className="cart-modal-content">
@@ -37,7 +45,7 @@ function CartModal({ isOpen, onClose, cartItems }) {
           </ul>
         )}
         <div className="cart-actions">
-          <button onClick={() => console.log('Checkout')}>Checkout</button>
+          <button onClick={handleCheckout}>Checkout</button>
         </div>
       </div>
     </div>

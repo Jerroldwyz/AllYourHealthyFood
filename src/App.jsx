@@ -9,7 +9,7 @@ import ProductDetails from './ProductDetails';
 import CartModal from './CartModal';
 import LoginPage from './loginPage';
 import RegistrationPage from './registrationPage';
-
+import CheckoutPage from './CheckoutPage';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,6 +57,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/register" element={<RegistrationPage />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
