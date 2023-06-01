@@ -147,3 +147,17 @@
 .cart-actions button:hover {
   background-color: #45a049;
 }
+
+/* styles.css */
+
+.profile-button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.profile-button:hover {
+  background-color: #45a049;
+}
