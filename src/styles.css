@@ -26,9 +26,17 @@
   .cart {
     margin-right: 10px;
   }
+
+  .cart:hover {
+    color:blue;
+  }
   
   .profile {
     margin-left: 10px;
+  }
+
+  .profile:hover {
+    color:blue;
   }
   
   .logo img {
