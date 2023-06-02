@@ -33,12 +33,12 @@ function App() {
               <img src={logoImage} alt="Logo" />
             </div>
           </Link>
-          <ul className="nav-items" m-auto>
+          <ul className="nav-items">
             <li>
-              <NavLink exact to="/" activeClassName="active-link">Home</NavLink>
+              <NavLink exact="true" to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/about" activeClassName="active-link">About</NavLink>
+              <NavLink to="/about">About</NavLink>
             </li>
           </ul>
           <div className="right-nav">

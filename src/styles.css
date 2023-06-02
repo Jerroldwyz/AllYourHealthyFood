@@ -88,6 +88,12 @@
 
 }
 
+.product-catalogue {
+  font-weight: bold;
+  margin: 10px;
+  font-size: 30px;
+}
+
 .product-price {
   font-size: 24px;
   color: red;
@@ -184,12 +190,6 @@
 .nav-items {
   font-weight: bold;
   font-size: 20px;
-}
-
-.product-catalogue {
-  font-weight: bold;
-  margin: 10px;
-  font-size: 25px;
 }
 
 .right-nav {

@@ -6,7 +6,7 @@ import { FaStar } from 'react-icons/fa';
 function Home() {
   return (
     <div className ="home">
-      <h1 className="product-catalogue text-center align-middle py-8 font-bold text-4xl">Product Catalogue</h1>
+      <h1 className="product-catalogue">Product Catalogue</h1>
       <div className="product-list">
         {userAccount.getCatalogue().map((product) => (
           <div className="product" key={product.id}>
