@@ -191,15 +191,11 @@
 
 .product-rating {
   display: flex;
-  margin-top: 7px;
-  align-items: center;
-  justify-content: center;
+  margin-top: 10px;
 }
 
 .product-rating .star-icon-wrapper {
   display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 1px;
 }
 
