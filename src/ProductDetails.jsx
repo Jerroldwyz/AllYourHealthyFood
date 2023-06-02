@@ -29,10 +29,15 @@ function ProductDetails() {
 
   return (
     <div className="product-details">
+      <div class="flex-none w-72 mx-20 pt-20 relative">
       <img src={product.image} alt={product.name} />
-      <div className="product-info">
-        <h2>{product.name}</h2>
-        <p>Price: ${product.price}</p>
+      </div>
+      <div class="mt-36">
+      <div class="text-sm font-medium text-slate-400">
+        In stock
+      </div>
+        <h2 className="name">{product.name}</h2>
+        <p className="price">${product.price}</p>
         <p>Rating: {product.rating}</p>
         <div className="add-to-cart">
           <input

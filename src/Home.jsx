@@ -6,7 +6,7 @@ import { FaStar } from 'react-icons/fa';
 function Home() {
   return (
     <div className ="home">
-      <h1 className="product-catalogue">Product Catalogue</h1>
+      <h1 className="product-catalogue" class="text-center align-middle py-8 font-bold text-4xl">Product Catalogue</h1>
       <div className="product-list">
         {userAccount.getCatalogue().map((product) => (
           <div className="product" key={product.id}>
@@ -16,7 +16,7 @@ function Home() {
                 style={{ backgroundImage: `url(${product.image})` }}
               ></div>
               <div className="product-details">
-                <p className="product-name">{product.name} - </p>
+                <p className="product-name">{product.name}</p>
                 <p className="product-price">${product.price}</p>
                 <div className="product-rating">
                   {renderStarRating(product.rating)}
