@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, NavLink, Navigate } from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
 import "./styles.css";
@@ -29,16 +29,16 @@ function App() {
       <div>
         <nav className="nav">
           <Link to="/">
-            <div className="logo">
+          <div className="logo">
               <img src={logoImage} alt="Logo" />
             </div>
           </Link>
-          <ul className="nav-items">
+          <ul className="nav-items" m-auto>
             <li>
-              <Link to="/">Home</Link>
+              <NavLink exact to="/" activeClassName="active-link">Home</NavLink>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <NavLink to="/about" activeClassName="active-link">About</NavLink>
             </li>
           </ul>
           <div className="right-nav">
@@ -48,7 +48,7 @@ function App() {
             <Link to="/profile" className="profile">Profile</Link>
           </div>
         </nav>
-        <CartModal isOpen={isOpen} onClose={closeModal}/>
+        <CartModal isOpen={isOpen} onClose={closeModal} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
