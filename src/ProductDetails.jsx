@@ -30,11 +30,11 @@ function ProductDetails() {
 
   return (
     <div className="product-details">
-      <div class="flex-none w-72 mx-20 pt-20 relative">
+      <div className="flex-none w-72 mx-20 pt-20 relative">
       <img src={product.image} alt={product.name} />
       </div>
-      <div class="mt-36">
-      <div class="text-sm font-medium text-slate-400">
+      <div className="mt-36">
+      <div className="text-sm font-medium text-slate-400">
         In stock
       </div>
         <h2 className="name">{product.name}</h2>
