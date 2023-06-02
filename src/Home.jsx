@@ -35,7 +35,7 @@ function renderStarRating(rating) {
   for (let i = 0; i < rating; i++) {
     stars.push(
       <div className="star-icon-wrapper" key={i}>
-        <FaStar className="star-icon" color="#fed047"/>
+        <FaStar className="star-icon"/>
       </div>
     );
   }
