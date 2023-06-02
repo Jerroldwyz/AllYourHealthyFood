@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import './ProductDetails.css'; // Import the CSS file
 import CartModal from './CartModal';
 import userAccount from './backend/UserAccount';
+import { FaStar } from 'react-icons/fa';
 
 function ProductDetails() {
   const { id } = useParams();
@@ -38,7 +39,9 @@ function ProductDetails() {
       </div>
         <h2 className="name">{product.name}</h2>
         <p className="price">${product.price}</p>
-        <p>Rating: {product.rating}</p>
+        <div className="product-rating">
+          {renderStarRating(product.rating)}
+        </div>
         <div className="add-to-cart">
           <input
             type="number"
@@ -52,6 +55,18 @@ function ProductDetails() {
       <CartModal isOpen={isCartOpen} onClose={handleCloseCart}/>
     </div>
   );
+}
+
+function renderStarRating(rating) {
+  const stars = [];
+  for (let i = 0; i < rating; i++) {
+    stars.push(
+      <div className="star-icon-wrapper" key={i}>
+        <FaStar className="star-icon"/>
+      </div>
+    );
+  }
+  return stars;
 }
 
 export default ProductDetails;
